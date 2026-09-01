@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy | MICHISE</title>
+<meta name="description" content="MICHISE privacy policy: what information is handled, why, how long it is kept, and how to delete it.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <p class="brand"><a href="index.html">MICHISE</a></p>
+    <p class="tagline">A browser extension that shows on-screen guidance inside business systems</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <p class="lang"><a href="privacy.html">日本語版（正式版）</a></p>
+
+    <h1>Privacy Policy</h1>
+
+    <p class="meta">
+      Effective: September 2, 2026 &nbsp;/&nbsp; Last updated: September 2, 2026<br>
+      Provider: MICHISE
+    </p>
+
+    <div class="note">
+      <p>
+        <strong>This English text is a reference translation.</strong>
+        The Japanese version is the official version. If the two differ,
+        the <a href="privacy.html">Japanese version</a> prevails.
+      </p>
+    </div>
+
+    <p>
+      MICHISE ("we") sets out below how the MICHISE browser extension ("the Extension")
+      handles information.
+    </p>
+    <p>
+      This policy describes what the Extension actually does. In particular, it states
+      explicitly which information read from a business screen
+      <strong>is not sent to our server</strong>.
+    </p>
+
+    <h2>1. Scope</h2>
+
+    <p>This policy applies to:</p>
+    <ul>
+      <li>the MICHISE browser extension distributed through the Chrome Web Store;</li>
+      <li>the MICHISE server that the Extension connects to.</li>
+    </ul>
+    <p>
+      The Extension is intended to be deployed by a company to its employees.
+      In this policy, "user" means a person operating the business system, and
+      "administrator" means a person who creates and publishes guidance in the
+      Extension's admin screen.
+    </p>
+
+    <h2>2. Information the Extension handles</h2>
+
+    <h3>2-1. Information entered by an administrator</h3>
+    <ul>
+      <li><strong>Email address</strong> (entered when an administrator signs in)</li>
+      <li><strong>Password</strong> (same)</li>
+      <li><strong>Authentication token</strong> (received from our server on successful sign-in)</li>
+      <li>The guidance content an administrator creates (text, button labels, the element to
+        attach guidance to, display conditions, and so on)</li>
+    </ul>
+
+    <h3>2-2. Information received at deployment</h3>
+    <ul>
+      <li>
+        <strong>A one-time enrollment token.</strong> A company administrator places this on each
+        device using the MICHISE installer, and the Extension reads it. It is used once only,
+        to determine which company's settings the device should receive.
+      </li>
+    </ul>
+
+    <h3>2-3. Information processed on the business screen</h3>
+    <p>
+      To place guidance correctly and to judge whether a step has been completed, the Extension
+      processes the following on the business screen.
+      <strong>None of it is sent to our server.</strong>
+    </p>
+    <ul>
+      <li>Page elements and their text (to locate where guidance should appear)</li>
+      <li>
+        Values in input fields. Read only when an administrator has configured a step that
+        fills one field by referring to another. Password fields, file inputs and hidden
+        fields are never read.
+      </li>
+      <li>The address (URL) of the page currently displayed, to evaluate the display
+        conditions an administrator configured</li>
+      <li>
+        Clicks, key presses, focus changes and scrolling, used solely to judge whether the
+        current step of the guidance has been completed
+      </li>
+      <li>
+        <strong>A screenshot of the business screen.</strong> Taken once, immediately after an
+        administrator uses "select on screen" in the admin screen to designate where guidance
+        should appear, so that the administrator can later confirm which location was chosen.
+      </li>
+    </ul>
+
+    <div class="note">
+      <p>
+        <strong>About screenshots.</strong> A screenshot is taken only when an administrator
+        performs the location-selection action in the admin screen. It is never taken during
+        ordinary use, when a user is simply viewing guidance. The image is stored only in that
+        device's browser (IndexedDB) and is <strong>not sent to our server</strong>.
+      </p>
+    </div>
+
+    <h3>2-4. Information the Extension does not handle</h3>
+    <ul>
+      <li>Health information</li>
+      <li>The contents of personal communications such as email or chat</li>
+      <li>Location (no location API is used)</li>
+      <li>Browsing history (no list of visited pages is recorded or stored)</li>
+      <li>Cookies (never read or written)</li>
+    </ul>
+
+    <h2>3. Purposes</h2>
+
+    <table>
+      <tr><th>Information</th><th>Purpose</th></tr>
+      <tr><td>Email address and password</td><td>To verify the administrator's identity</td></tr>
+      <tr><td>Authentication token</td><td>To keep the administrator signed in</td></tr>
+      <tr><td>Enrollment token</td><td>To determine which company the device belongs to</td></tr>
+      <tr><td>Guidance content</td><td>To display guidance on the user's business screen</td></tr>
+      <tr><td>Page elements and text</td><td>To locate where guidance should appear</td></tr>
+      <tr><td>Input field values</td><td>To perform the "fill by reference" step an administrator configured</td></tr>
+      <tr><td>Page address</td><td>To evaluate the display conditions an administrator configured</td></tr>
+      <tr><td>Clicks and similar actions</td><td>To judge whether a guidance step has been completed</td></tr>
+      <tr><td>Screenshot of the business screen</td><td>So an administrator can confirm the location they designated</td></tr>
+      <tr><td>Guidance progress</td><td>So guidance can continue after the page changes</td></tr>
+    </table>
+
+    <p>
+      We do not use this information for advertising, behavioural analysis or web analytics,
+      and we do not send it to any external analytics service.
+    </p>
+
+    <h2>4. Information processed and stored on the device</h2>
+
+    <table>
+      <tr><th>Where</th><th>What</th><th>When it is removed</th></tr>
+      <tr>
+        <td>Extension storage<br>(chrome.storage.local)</td>
+        <td>A cached copy of the company's published settings, synchronisation state,
+          guidance progress, the company binding, and the list an administrator uses to
+          preview drafts on their own device only</td>
+        <td>Guidance progress expires after 30 minutes. The rest is removed when the company
+          settings are cleared or the Extension is uninstalled</td>
+      </tr>
+      <tr>
+        <td>Extension session storage<br>(chrome.storage.session)</td>
+        <td>The administrator's authentication token</td>
+        <td>When the browser is closed, on sign-out, or when the token expires</td>
+      </tr>
+      <tr>
+        <td>Managed configuration<br>(chrome.storage.managed)</td>
+        <td>The one-time enrollment token (<strong>read only</strong>; the Extension cannot
+          write to this area)</td>
+        <td>When the company administrator removes the deployed configuration</td>
+      </tr>
+      <tr>
+        <td>In-browser database<br>(IndexedDB)</td>
+        <td>Screenshots of the business screen, and images an administrator inserted in the
+          admin screen</td>
+        <td>When the Extension is uninstalled, or when deleted from the admin screen</td>
+      </tr>
+    </table>
+
+    <p>
+      An administrator's password is sent for authentication immediately after entry and is
+      <strong>not stored on the device</strong>. The authentication token is stored only in an
+      area that is cleared when the browser closes; it is never written to disk-backed storage.
+    </p>
+    <p>
+      Guidance progress consists only of the guide identifier, flags for completed steps, the
+      branch taken, the starting step and a timestamp. It contains no screen content and no
+      entered values.
+    </p>
+
+    <h2>5. Information sent to our server</h2>
+
+    <p>The Extension sends information to our server only in the following cases.</p>
+
+    <ol>
+      <li><strong>When an administrator signs in:</strong> the email address and password are sent.</li>
+      <li><strong>When a device is bound to a company:</strong> the one-time enrollment token is
+        sent once, and the device receives its own connection information in return.</li>
+      <li><strong>When an administrator selects "Publish changes":</strong> the guidance content
+        they created (guides, buttons, popups, hints and the default button appearance) is sent.</li>
+      <li><strong>When receiving published settings:</strong> the server decides which company's
+        settings to return; the Extension never sends a company or environment identifier.</li>
+    </ol>
+
+    <h2>6. Information that is not sent to our server</h2>
+
+    <p>The following is processed on the device only and <strong>is never sent to our server</strong>.</p>
+
+    <ul>
+      <li>Screenshots of the business screen</li>
+      <li>Text displayed on the business screen</li>
+      <li>Values entered in input fields</li>
+      <li>The address of the page currently displayed</li>
+      <li>Clicks, key presses and scrolling</li>
+      <li>Guidance progress</li>
+    </ul>
+
+    <p>
+      The part of the Extension that runs inside the business screen performs no external
+      communication at all. Communication occurs only in the four cases listed in section 5.
+    </p>
+
+    <div class="note">
+      <p>
+        <strong>Relationship to the Chrome Web Store declaration.</strong>
+        The Chrome Web Store requires disclosure even for information that is processed only
+        on the device. We declare five categories: "Personally identifiable information",
+        "Authentication information", "Website content", "User activity" and
+        "Financial and payment information". Of these, the only things sent to our server are
+        the items listed in section 5 — the administrator's email address, password,
+        authentication token and enrollment token, and the guidance content the administrator
+        created. The remaining three — "Website content", "User activity" and
+        "Financial and payment information" — are
+        <strong>processed on the device to the extent needed to display guidance</strong>;
+        that does not mean we collect them, send them to our server, or use them for advertising
+        or analytics. "Financial and payment information" is declared because a screenshot taken
+        by an administrator may happen to capture whatever is shown on that screen, not because
+        the Extension seeks out such information.
+      </p>
+    </div>
+
+    <h2>7. Retention</h2>
+
+    <h3>On the device</h3>
+    <ul>
+      <li>Guidance progress: expires after 30 minutes</li>
+      <li>Administrator authentication token: removed when the browser is closed, on sign-out,
+        or when it expires</li>
+      <li>Cached settings and company binding: removed when the company settings are cleared or
+        the Extension is uninstalled</li>
+      <li>Screenshots: removed when the Extension is uninstalled</li>
+    </ul>
+
+    <h3>On our server</h3>
+    <p>
+      We retain the necessary data for as long as MICHISE is in use, and
+      <strong>delete it within 30 days after use ends</strong>.
+    </p>
+    <p>
+      Enrollment tokens are issued with an expiry (90 days at most) and a maximum number of
+      devices; they stop working once expired, exhausted or revoked.
+    </p>
+
+    <h2>8. Deleting data</h2>
+
+    <ul>
+      <li>
+        <strong>On the device:</strong> "Clear company settings" in the admin screen removes the
+        company binding and the cached settings. Uninstalling the Extension removes all data it holds.
+      </li>
+      <li>
+        <strong>Authentication token:</strong> removed on sign-out, and when the browser is closed.
+      </li>
+      <li>
+        <strong>On our server:</strong> deletion requests are accepted at
+        <a href="mailto:michise.support@gmail.com">michise.support@gmail.com</a>.
+      </li>
+    </ul>
+
+    <h2>9. Sharing with third parties</h2>
+
+    <p>
+      We do not sell the information we handle, and we do not provide it to advertising
+      platforms, data brokers or similar third parties.
+    </p>
+    <p>
+      The Extension communicates with a single server that we operate. No code is implemented to
+      send information to any external analytics or advertising service.
+    </p>
+    <p>
+      We may disclose information to the extent required by applicable law.
+    </p>
+
+    <h2>10. Advertising and analytics</h2>
+
+    <p>
+      We do not use the information for delivering or measuring advertising, nor for analysing
+      user behaviour. The Extension displays no advertising and contains no analytics mechanism.
+    </p>
+
+    <h2>11. Security</h2>
+
+    <ul>
+      <li>
+        Secrets used for connection are <strong>never held in plain text on our server</strong>;
+        only an irreversible hash is stored.
+      </li>
+      <li>
+        The administrator's authentication token is stored only in an area cleared when the
+        browser closes, never in disk-backed storage.
+      </li>
+      <li>
+        The Extension's communication destination is fixed to a single location and cannot be
+        changed from outside.
+      </li>
+      <li>
+        The Extension requests only two permissions: access to its own storage, and the ability
+        to capture the visible screen once, immediately after an administrator designates a location.
+      </li>
+      <li>
+        <strong>No remotely hosted code is executed.</strong> The Extension runs only the code
+        included in the package distributed through the Chrome Web Store.
+      </li>
+      <li>
+        Which company's settings are returned is decided by the server from the device's
+        connection information; the Extension cannot specify a company.
+      </li>
+    </ul>
+
+    <h2>12. Limited Use disclosure</h2>
+
+    <div class="note">
+      <p>
+        MICHISE's use of information received from Google APIs will adhere to the
+        Chrome Web Store User Data Policy, including the Limited Use requirements.
+      </p>
+      <p>
+        Information handled by MICHISE is used only for MICHISE's single purpose —
+        <strong>displaying administrator-authored guidance on the user's business screen</strong> —
+        and for related operational purposes.
+      </p>
+      <p>MICHISE does not:</p>
+      <ul>
+        <li>use, transfer or sell the information for personalized advertising;</li>
+        <li>sell or transfer it to third parties such as advertising platforms or data brokers;</li>
+        <li>use, transfer or sell it to determine credit-worthiness or for lending purposes.</li>
+      </ul>
+    </div>
+
+    <h2>13. Changes to this policy</h2>
+
+    <p>
+      When we change this policy, the updated text is published on this page. The text published
+      here is the current version. The last updated date is shown at the top of this page.
+    </p>
+
+    <h2>14. Governing law</h2>
+
+    <p>This policy is interpreted in accordance with the laws of Japan.</p>
+
+    <h2>15. Contact</h2>
+
+    <p>
+      For questions about this policy, or to request deletion of data, please contact us.
+    </p>
+    <p>
+      Provider: MICHISE<br>
+      Contact: <a href="mailto:michise.support@gmail.com">michise.support@gmail.com</a>
+    </p>
+
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p><a href="index.html">MICHISE home</a> &nbsp;/&nbsp; <a href="privacy.html">日本語版</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
