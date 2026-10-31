@@ -24,7 +24,7 @@
     <h1>Privacy Policy</h1>
 
     <p class="meta">
-      Effective: September 2, 2026 &nbsp;/&nbsp; Last updated: October 29, 2026<br>
+      Effective: September 2, 2026 &nbsp;/&nbsp; Last updated: October 30, 2026<br>
       Provider: MICHISE
     </p>
 
@@ -108,7 +108,7 @@
       </li>
       <li>
         <strong>Data stock values.</strong> On the pages an administrator specified, the value of
-        a text input field the administrator specified is kept temporarily. It is used only to
+        an input field (text, number or date) the administrator specified is kept temporarily. It is used only to
         evaluate display conditions the administrator configured and to fill input fields in
         guide steps.
       </li>
@@ -145,11 +145,17 @@
         is only the rule stating which field on which pages to keep. Values kept on a user's
         screen are <strong>sent neither to our server nor to the administrator</strong>. They are
         stored per tab in session storage that is cleared when the browser closes
-        (chrome.storage.session). A kept value is removed in any of these cases: 10 minutes after
-        it was last kept, when the tab is closed, when the browser is closed, when the source field
+        (chrome.storage.session). Each data stock has a retention time set by the administrator:
+        10 minutes by default, or 30 minutes, 1 hour, or any value from 1 to 1440 minutes (up to
+        24 hours). The retention time counts from when the value was last kept, and a value past
+        its retention time is not used. Such a value is not removed at the exact moment its
+        retention time passes; it is removed the next time the Extension checks the value.
+        A kept value is also removed in any of these cases: when the tab is closed, when the
+        browser is closed, when the source field
         becomes empty, when a page outside the range the administrator specified is opened, when a
         page on a different site is opened, when the connected company changes or can no longer be
-        confirmed, or when the rule is no longer published.
+        confirmed, or when the rule is no longer published. If the administrator shortens the
+        retention time, values that are already kept are also given the shorter time.
       </p>
     </div>
 
@@ -206,7 +212,8 @@
         <td>The administrator's authentication token, the company, environment and tabs the
           administrator is previewing, and data stock values with per-tab state</td>
         <td>When the browser is closed. The authentication token is also removed on sign-out or
-          when it expires. Data stock values are also removed in the cases listed in section 2-3</td>
+          when it expires. Data stock values are removed according to the retention time and the
+          cases listed in section 2-3</td>
       </tr>
       <tr>
         <td>Managed configuration<br>(chrome.storage.managed)</td>
@@ -249,7 +256,8 @@
         in the popup.</li>
       <li><strong>When an administrator saves settings or selects "Publish changes":</strong> the
         guidance content they created (guides, buttons, popups, hints, selection navi, the default
-        button appearance, data stock rules, and folder names and assignments) is sent. Images
+        button appearance, data stock rules including their retention time, and folder names and
+        assignments) is sent. Images
         used in published popups are also sent. Values kept by data stock are not sent.</li>
       <li><strong>When receiving published settings:</strong> the server decides which company's
         settings to return; the Extension never sends a company or environment identifier.
@@ -320,8 +328,10 @@
       <li>Cached settings and company binding: removed when the company settings are cleared or
         the Extension is uninstalled</li>
       <li>Screenshots: removed when the Extension is uninstalled</li>
-      <li>Data stock values: removed 10 minutes after they were last kept, and also in the other
-        cases listed in section 2-3, such as when the tab or browser is closed</li>
+      <li>Data stock values: not used once the retention time set by the administrator
+        (10 minutes by default, up to 24 hours) has passed since they were last kept. Such values
+        are removed the next time the Extension checks the value. They are also removed in the
+        other cases listed in section 2-3, such as when the tab or browser is closed</li>
       <li>Cached copies of published popup images: removed when the published settings no longer
         use them, or when the Extension is uninstalled</li>
     </ul>
